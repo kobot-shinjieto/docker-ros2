@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  moveit2_dev:
+    image: docker-ros2 
+    build:
+      context: . 
+    container_name: docker-ros2
+    stdin_open: true
+    tty: true
+    environment:
+      - DISPLAY=${DISPLAY} 
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix 
+      - ../src:/root/ros2_ws/src
+    network_mode: "host" 
